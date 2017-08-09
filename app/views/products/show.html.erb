@@ -1,0 +1,10 @@
+<h2><%= @product.name %></h2>
+<p> PRICE : INR <%= @product.price %> </p>
+<p> DETAILS:  <%= @product.description %> </p>
+<p> CATEGORY : <%= link_to @product.category.name, category_path(@product.category_id) %> </p>
+
+<%= link_to "List Products", products_path %>
+
+<%= link_to "edit", edit_product_path(@product.id) %>
+
+<%= link_to "destroy", product_path(@product.id), method: :delete, data: {confirm: "Are you sure?"} %>

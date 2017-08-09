@@ -1,0 +1,18 @@
+<h2>Listing Products</h2>
+<% if @products.empty? %>
+		<p>No Products Found</p>
+<% else %>
+	<ul>
+		<% @products.each do |product| %>
+			<li><%= link_to product.name, product_path(product.id) %> - INR <%= product.price %>
+
+				<%= link_to product.category.name, category_path(product.category_id) %>
+				
+				<%= link_to "show", product_path(product.id) %>
+			</li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= link_to "Add Product", new_product_path %>
+<!-- <a href="/products/new">Add Product</a> -->
